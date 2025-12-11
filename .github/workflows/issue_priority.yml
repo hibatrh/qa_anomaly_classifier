@@ -1,0 +1,44 @@
+name: Auto-Priority Prediction
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  predict:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install pandas scikit-learn joblib
+
+      - name: Predict priority
+        id: predict
+        run: |
+          python predict_from_github.py "${{ github.event.issue.title }}" "${{ github.event.issue.body }}"
+
+      - name: Add label
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const priority = '${{ steps.predict.outputs.priority }}';
+            if (priority) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: [priority]
+              });
+            }
