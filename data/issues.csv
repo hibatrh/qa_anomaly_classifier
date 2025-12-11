@@ -1,0 +1,414 @@
+title,body,state,labels,priority
+Bug: Server Components error when directly rendering a Context,"A Server Component that renders `<Context>` directly will result in a runtime error:
+
+> Element type is invalid. Received a promise that resolves to: Context. Lazy element type must resolve to a class or function.
+
+[Here's the minimum repro](https://github.com/samselikoff/2025-12-09-render-context-from-rsc):
+
+```tsx
+import { Context } from './context';
+
+export default function Home() {
+  return <Context value={2}>hello</Context>;
+}
+```
+
+```tsx
+// context.tsx
+'use client';
+
+import { createContext",open,['Status: Unconfirmed'],P1
+Bug: ViewTransition with enter/exit hard-crashes iOS Safari,"I'm experiencing an iOS-only crash (iOS 26.1) when there's `ViewTransition` with `enter` and another with `exit`:
+
+```js
+import { Suspense, use } from ""react"";
+import { ViewTransition } from ""react"";
+import ""./App.css"";
+
+const promise = new Promise((r) => setTimeout(() => r(""Done""), 3000));
+
+function Content() {
+  return <div>{use(promise)}</div>;
+}
+
+export default function App() {
+  return (
+    <Suspense
+      fallback={
+        <ViewTransition exit=""vt-reveal"">
+          <div>Loading...</div>",open,"['Type: Bug', 'Browser: Safari']",P0
+Bug: Suspense fallback streaming not working without html/body/head components,"<!--
+  Please provide a clear and concise description of what the bug is. Include
+  screenshots if needed. Please test using the latest version of the relevant
+  React packages to make sure your issue has not already been fixed.
+-->
+Suspense fallback is not rendered during SSR when the root component lacks top-level `<html>`, `<head>`, or `<body>` tags. The server buffers the entire response until all suspended promises resolve, preventing streaming and the rendering of the initial fallback cont",open,['Status: Unconfirmed'],P0
+"[Compiler Bug]: False positive on ""Hooks may not be referenced as normal values, they must be called""","### What kind of issue is this?
+
+- [ ] React Compiler core (the JS output is incorrect, or your app works incorrectly after optimization)
+- [x] babel-plugin-react-compiler (build issue installing or using the Babel plugin)
+- [ ] eslint-plugin-react-hooks (build issue installing or using the eslint plugin)
+- [ ] react-compiler-healthcheck (build issue installing or using the healthcheck script)
+
+### Link to repro
+
+https://playground.react.dev/#N4Igzg9grgTgxgUxALhHCA7MAXABFMBANQEMAbKBXAXlwAoBKGgPn",open,"['Type: Bug', 'Status: Unconfirmed']",P2
+Bug:,"<!--
+  Please provide a clear and concise description of what the bug is. Include
+  screenshots if needed. Please test using the latest version of the relevant
+  React packages to make sure your issue has not already been fixed.
+-->
+
+React version:
+
+## Steps To Reproduce
+
+1.
+2.
+
+<!--
+  Your bug will get fixed much faster if we can run your code and it doesn't
+  have dependencies other than React. Issues without reproduction steps or
+  code examples may be immediately closed as not actionable.
+--",closed,['Status: Unconfirmed'],P2
+[Compiler Bug]:,"### What kind of issue is this?
+
+- [x] React Compiler core (the JS output is incorrect, or your app works incorrectly after optimization)
+- [x] babel-plugin-react-compiler (build issue installing or using the Babel plugin)
+- [x] eslint-plugin-react-hooks (build issue installing or using the eslint plugin)
+- [x] react-compiler-healthcheck (build issue installing or using the healthcheck script)
+
+### Link to repro
+
+. Thank you for helping us make this chatbot experience better!
+
+### Repro steps
+
+4",closed,"['Type: Bug', 'Status: Unconfirmed']",P2
+"Bug: React DevTools shows different versions (Stable vs. Canary) for Page/App Router in Next.js, potentially indicating an unpatched security risk (19.2.0-canary vs 19.2.1)","<!--
+  Please provide a clear and concise description of what the bug is. Include
+  screenshots if needed. Please test using the latest version of the relevant
+  React packages to make sure your issue has not already been fixed.
+-->
+
+React version: react 19.1.2 / next 15.3.6
+
+## Steps To Reproduce
+
+1.  Set up a Next.js project with both App Router and Page Router enabled.
+2. Set react and react-dom versions to 19.1.2 in package.json and run pnpm install
+3. Create a page based on the Page Router
+",closed,['Status: Unconfirmed'],P0
+[Compiler Bug]: Cannot reassign component props,"### What kind of issue is this?
+
+- [x] React Compiler core (the JS output is incorrect, or your app works incorrectly after optimization)
+- [x] babel-plugin-react-compiler (build issue installing or using the Babel plugin)
+- [ ] eslint-plugin-react-hooks (build issue installing or using the eslint plugin)
+- [ ] react-compiler-healthcheck (build issue installing or using the healthcheck script)
+
+### Link to repro
+
+https://playground.react.dev/#N4Igzg9grgTgxgUxALhAgHgBwjALgAgBMEAzAQygBsCSoA7OXASwj",open,"['Type: Bug', 'Status: Unconfirmed']",P1
+Bug: Facebook account nakalimutan ko pano maopen ang aking account,"<!--
+  Please provide a clear and concise description of what the bug is. Include
+  screenshots if needed. Please test using the latest version of the relevant
+  React packages to make sure your issue has not already been fixed.
+-->
+
+React version:
+
+## Steps To Reproduce
+
+1.
+2.
+
+<!--
+  Your bug will get fixed much faster if we can run your code and it doesn't
+  have dependencies other than React. Issues without reproduction steps or
+  code examples may be immediately closed as not actionable.
+--",closed,['Status: Unconfirmed'],P2
+ASDF,asfdgdhd,closed,[],P2
+Render,ssagfsashg,closed,[],P2
+Bug : Component not rendering,Issue while rendering components.,closed,[],P2
+Bug: Forms are reset when action fails,"<!--
+  Please provide a clear and concise description of what the bug is. Include
+  screenshots if needed. Please test using the latest version of the relevant
+  React packages to make sure your issue has not already been fixed.
+-->
+
+React version: 19.2.1
+
+## Steps To Reproduce
+
+1. Enter some text into the input and submit. The action will fail.
+
+<!--
+  Your bug will get fixed much faster if we can run your code and it doesn't
+  have dependencies other than React. Issues without reproduction ste",open,['Status: Unconfirmed'],P2
+Bug: set-state-in-use-effect false negative when there are multiple instances,"This code correctly produces a lint error:
+
+```tsx
+function MyComponent() {
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true);  // ✅ ESLint correctly flags this (1 error)
+    }, []);
+    // commented out code...
+    return null;
+}
+```
+
+But this code does not:
+
+```tsx
+function MyComponent() {
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true);  // ❌ BUG: Error no longer reported (should still be flagged",closed,"['Status: Unconfirmed', 'Component: React Compiler', 'Resolution: Needs More Information']",P1
+.,.,closed,['Status: Unconfirmed'],P2
+"Bug: eslint-plugin-react-hooks not throwing ""Hooks may not be referenced as normal values"" error","React version: 19.2.
+
+## Steps To Reproduce
+
+1. The expected behavior screenshot shows when my repo had eslint-plugin-react-compiler@beta and eslint-plugin-react-hooks@4.6.2 installed. [Per the React Compiler v1.0 announcement](https://react.dev/blog/2025/10/07/react-compiler-1#migrating-from-eslint-plugin-react-compiler-to-eslint-plugin-react-hooks), I removed eslint-plugin-react-compiler, bumped eslint-plugin-react-hooks to the latest version (7.0.1), and made the eslint config changes accordi",open,['Status: Unconfirmed'],P1
+Bug: react-hooks/set-state-in-effect: false-positive with ternary,"React version: react@19.2.0, eslint-plugin-react-hooks@7.0.1
+
+## Steps To Reproduce
+
+```tsx
+function getWidth(el: HTMLElement) {
+  return el.clientWidth;
+}
+
+function Component({value}: {value: string}) {
+  const [width, setWidth] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setWidth(ref.current ? getWidth(ref.current) : 0);
+//  ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  }, [value]);
+
+  return <div ref={ref}>{value}{width}</div>;
+}
+```",open,['Status: Unconfirmed'],P1
+Bug:,"<!--
+  Please provide a clear and concise description of what the bug is. Include
+  screenshots if needed. Please test using the latest version of the relevant
+  React packages to make sure your issue has not already been fixed.
+-->
+
+React version:
+
+## Steps To Reproduce
+
+1.
+2.
+
+<!--
+  Your bug will get fixed much faster if we can run your code and it doesn't
+  have dependencies other than React. Issues without reproduction steps or
+  code examples may be immediately closed as not actionable.
+--",closed,['Status: Unconfirmed'],P2
+Bug:,"<!--
+  Please provide a clear and concise description of what the bug is. Include
+  screenshots if needed. Please test using the latest version of the relevant
+  React packages to make sure your issue has not already been fixed.
+-->
+
+React version:
+
+## Steps To Reproduce
+
+1.
+2.
+
+<!--
+  Your bug will get fixed much faster if we can run your code and it doesn't
+  have dependencies other than React. Issues without reproduction steps or
+  code examples may be immediately closed as not actionable.
+--",closed,['Status: Unconfirmed'],P2
+Bug: `progressiveChunkSize` forcing streaming SSR breaks html file integrity and `onAllReady` behavior,"React version: 19.2.0
+
+
+## Steps To Reproduce
+
+```tsx
+// App.tsx
+<div className=""rp-doc rspress-doc"">
+  <Suspense>
+    <MyComp />
+  </Suspense>
+</div>
+```
+
+```ts
+function renderToHtml(app: ReactNode): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const passThrough = new PassThrough();
+    const { pipe } = renderToPipeableStream(app, {
+      onError(error) {
+        reject(error);
+      },
+      onAllReady() {
+        pipe(passThrough);
+        text(passThrough).then(resolve, ",open,['Status: Unconfirmed'],P1
+[Compiler Bug]: incorrectly uses variable name as JSX tag (`<base />`) instead of referenced value,"### What kind of issue is this?
+
+- [x] React Compiler core (the JS output is incorrect, or your app works incorrectly after optimization)
+- [ ] babel-plugin-react-compiler (build issue installing or using the Babel plugin)
+- [ ] eslint-plugin-react-hooks (build issue installing or using the eslint plugin)
+- [ ] react-compiler-healthcheck (build issue installing or using the healthcheck script)
+
+### Link to repro
+
+https://playground.react.dev/#N4Igzg9grgTgxgUxALhASwLYAcIwC4AEASggIZyEBmMEGBA5DGRfQ",open,"['Type: Bug', 'Status: Unconfirmed']",P2
+`react-hooks/rules-of-hooks` false positives inside class instances (not class components),"We use classes to organize our code, and the eslint rule `react-hooks/rules-of-hooks` always warns about hooks not being usable inside class components, regardless if the class is a component.
+
+### Reproduction
+
+```js
+class Store {
+  use() {
+    return React.useState(4)
+  }
+}
+```",open,['Status: Unconfirmed'],P2
+Bug: fabric completeRoot called for suspended comp. w/ same tree output,"<!--
+  Please provide a clear and concise description of what the bug is. Include
+  screenshots if needed. Please test using the latest version of the relevant
+  React packages to make sure your issue has not already been fixed.
+-->
+
+React version: 19.3 (latest main)
+
+## Steps To Reproduce
+
+1. Checkout the test case in this PR: https://github.com/facebook/react/pull/35262
+
+<!--
+  Your bug will get fixed much faster if we can run your code and it doesn't
+  have dependencies other than React. Issu",open,['Status: Unconfirmed'],P1
+Bug: React 19.2 doesn't seem to have useEffectEvent :(,"React 19.2 doesn't seem to have useEffectEvent :( 
+
+<img width=""830"" height=""715"" alt=""Image"" src=""https://github.com/user-attachments/assets/03a370be-beba-4e1b-a747-67bd73d45ff4"" />
+
+React version:
+
+19.2.0
+
+## The current behavior
+
+
+## The expected behavior
+",closed,['Status: Unconfirmed'],P2
+Bug:,"<!--
+  Please provide a clear and concise description of what the bug is. Include
+  screenshots if needed. Please test using the latest version of the relevant
+  React packages to make sure your issue has not already been fixed.
+-->
+
+React version:
+
+## Steps To Reproduce
+
+1.
+2.
+
+<!--
+  Your bug will get fixed much faster if we can run your code and it doesn't
+  have dependencies other than React. Issues without reproduction steps or
+  code examples may be immediately closed as not actionable.
+--",closed,['Status: Unconfirmed'],P2
+"[DevTools Bug]: Internal state change in cousin component causing a ""re-render"" in another cousin component wrapped inside parent divs.","### Website or app
+
+https://github.com/mukesharyal/react-devtools-bug-report
+
+### Repro steps
+
+1. Clone the GitHub repo and run `npm install`
+2. Run the local dev server with `npm run dev` and also run React Devtools
+3. You will see two components `ComponentA` and `ComponentB`
+4. Cause a re-render of `ComponentA` by clicking the button a bunch of times
+5. `ComponentB` will also be shown in the component render highlights and `Profiler` sessions
+
+The structure of `App` component looks like this:
+",open,"['Type: Bug', 'Status: Unconfirmed', 'Component: Developer Tools']",P1
+[DevTools Bug]: Internal state change in a cousin component causing a Profiler re-render in another cousin component wrapped inside parent divs.,"### Website or app
+
+https://github.com/mukesharyal/react-devtools-bug-report
+
+### Repro steps
+
+Steps for reproduction:
+1. Clone the GitHub repo.
+2. Run the dev server and open React Devtools.
+3. You will see two components `ComponentA` and `ComponentB`.
+4. Cause a re-render of `ComponentA` by clicking the button.
+5. `ComponentB` will also be highlighted as being re-rendered and can also be seen in a Profiler session.
+
+`ComponentA` and `ComponentB` are wrapped inside of two `div`s in the `App` co",closed,"['Type: Bug', 'Status: Unconfirmed', 'Component: Developer Tools']",P1
+Bug: Should have a queue. This is likely a bug in React,"<!--
+I upgraded me react native app from 0.73.8 to 0.77.3 and as soon as I run app I get this error ""Should have a queue. This is likely a bug in React. Please file an issue""
+-->
+
+React version: 18.3.1
+
+## Steps To Reproduce
+
+1. Run react native app with RN 0.77.3 and react 18.3.1
+2. First thing that shows is the error
+
+<!--
+  Your bug will get fixed much faster if we can run your code and it doesn't
+  have dependencies other than React. Issues without reproduction steps or
+  code examples may b",open,['Status: Unconfirmed'],P1
+Bug: `useActionState`'s second argument is not optional in the React types,"React version: 19.2
+
+## Steps To Reproduce
+
+1. `useActionState(action)` currently throws a type error.
+
+## The current behavior
+
+I'm building a library that makes use of React Actions for mutations. There is no need to pass an initial state variable for `useActionState`. An ""implicit undefined"" initial state is perfectly fine and saves people from typing 6 characters each time.
+
+When I omit the second argument, React appears to be working just fine. However, `@types/react` expects the second arg",open,['Status: Unconfirmed'],P1
+"Bug: Compiler, group memoisation","The compiler seems to mix dependency in some condition and nest block incorrectly.
+
+React version: 19.2
+Issue demo : [React Compiler Playground](https://playground.react.dev/#N4Igzg9grgTgxgUxALhAgHgBwjALgAgBMEAzAQygBsCSoA7OXASwjvwFkBPAQU0wAoAlPmAAdNvjiswBANpT6uADT4wCXAGFodXAF18AXnxQ1AZVxlcCfgAZBAbnH5J0uUysBbMCrW4Akp5g+kYmCOaW1rIAjCoATCoAzCoALCoArLqC4k4udDL4JEzUCDAIhAEIXob47pVgAHSFxTD8AG6GAHz4rQCksYYGRnbZElJ5BEwMpR4IOtVCnSI5zr5aim2LrQDUUVkSAL4jzmP5ZITlnvPCBl1iEivqFV4bN-iy9R+tKq31lLMA5rgABb4Lb4KKZ",open,['Status: Unconfirmed'],P2
+[Compiler Bug]: Memoization depends on how the order of the lines of code,"### What kind of issue is this?
+
+- [x] React Compiler core (the JS output is incorrect, or your app works incorrectly after optimization)
+- [ ] babel-plugin-react-compiler (build issue installing or using the Babel plugin)
+- [ ] eslint-plugin-react-hooks (build issue installing or using the eslint plugin)
+- [ ] react-compiler-healthcheck (build issue installing or using the healthcheck script)
+
+### Link to repro
+
+https://playground.react.dev/#N4Igzg9grgTgxgUxALhAgHgBwjALgAgDMoA7OXASwhPyjAQDEIIAK",open,"['Type: Bug', 'Status: Unconfirmed']",P2
+Bug: Build of `react-dom` hangs on Deno runtime,"
+React version: 19.2.0
+
+## Steps To Reproduce
+
+1. clone https://github.com/Yovach/deno-tanstack-start-bug-reproduction
+2. deno install
+3. deno task build
+
+
+## The current behavior
+
+It's hanging forever.
+
+## The expected behavior
+
+Not hanging on `deno task build`
+
+
+## Context
+
+I've been investigating the vite build hanging issue in Deno and found the root cause. https://github.com/denoland/deno/issues/31248
+
+Seems that `react-dom` package.json maps Deno to use the browser bundle (`server.browser.",closed,['Status: Unconfirmed'],P2
